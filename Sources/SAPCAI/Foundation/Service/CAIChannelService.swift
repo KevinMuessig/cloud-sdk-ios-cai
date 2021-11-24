@@ -119,8 +119,8 @@ public final class CAIChannelService: ObservableObject {
                 self.logger.info("successfully loaded preferences \(prefs)")
 
                 result = .success(prefs.results)
-            } catch {
-                self.logger.error("Unable to parse preferences from data \(data.toString)")
+            } catch let error {
+                self.logger.error("Unable to parse preferences from data \(data.toString) due to error \(error.localizedDescription)")
                 result = .failure(error)
             }
             
